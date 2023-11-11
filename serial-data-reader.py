@@ -1,5 +1,4 @@
 import serial
-import time
 import requests
 
 ser = serial.Serial("COM6", 9600)
