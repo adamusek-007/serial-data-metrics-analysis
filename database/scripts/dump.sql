@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `weather`.`data` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `weather`.`sensors`.`name` VALUES ("temperature"), ("humidity");
+INSERT INTO `sensors` (`name`) VALUES ("temperature"), ("humidity");
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
