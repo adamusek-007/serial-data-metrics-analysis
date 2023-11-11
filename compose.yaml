@@ -3,7 +3,6 @@ services:
     build: docker/app
     volumes:
       - ./app:/var/www/html
-      - ./db-config.php:/var/www/db-config.php
     ports:
       - 80:80
     expose:
@@ -17,7 +16,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: weather
     volumes:
-      - ./database/:/docker-entrypoint-initdb.d/
+      - ./database/scripts/:/docker-entrypoint-initdb.d/
     ports:
       - 3306:3306
     healthcheck:
