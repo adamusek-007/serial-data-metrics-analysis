@@ -8,9 +8,7 @@ ser = serial.Serial("COM6", 9600)
 def send_sensor_data(temperature, humidity):
     url = f"http://127.0.0.1?temperature={temperature}&humidity={humidity}"
     response = requests.get(url)
-    if response.status_code == 200:
-        print("Data sent successfully.")
-    else:
+    if response.status_code != 200:
         print(f"Failed to send data. Status code: {response.status_code}")
 
 
@@ -26,7 +24,6 @@ def read_sensor_data():
                 temperature = float(strTemperature)
                 humidity = float(data.split("Humidity:")[1].strip())
                 send_sensor_data(temperature, humidity)
-                # print(f"Temperature: {temperature}°C, Humidity: {humidity}%")
 
     except KeyboardInterrupt:
         pass
