@@ -2,6 +2,8 @@ import serial
 import requests
 import json
 
+
+# TODO Error handling
 # TODO get informations about port and baudrate from the user
 
 COM_PORT = "COM6"
