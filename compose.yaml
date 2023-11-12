@@ -1,12 +1,12 @@
 services:
-  app:
-    build: docker/app
+  data-reciever:
+    build: docker/data-reciever
     volumes:
-      - ./app:/var/www/html
+      - ./src/data-reciever:/var/www/html
     ports:
       - 80:80
     expose:
-     - 9003
+      - 9003
     depends_on:
       database:
         condition: service_healthy
@@ -16,7 +16,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: weather
     volumes:
-      - ./database/scripts/:/docker-entrypoint-initdb.d/
+      - ./src/database/scripts/:/docker-entrypoint-initdb.d/
     ports:
       - 3306:3306
     healthcheck:
