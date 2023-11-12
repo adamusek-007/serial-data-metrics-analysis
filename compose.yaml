@@ -31,8 +31,7 @@ services:
     depends_on:
       database:
         condition: service_healthy
-  data-forwarder:
-    build: docker/data-forwarder
-    depends_on:
-      app:
-        condition: service_healthy
+    volumes:
+      - grafana-storage:/var/lib/grafana
+volumes:
+  grafana-storage:
