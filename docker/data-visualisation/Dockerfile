@@ -1,2 +1,3 @@
 # syntax=docker/dockerfile:1
-FROM grafana/grafana:latest
+FROM grafana/grafana-oss:latest-ubuntu
+
